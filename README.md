@@ -71,10 +71,10 @@ This checklist is meant to suit in a well moduled API framework. This means that
 
 So, the checklist:
 
-- Check if the route is defined
-- Check if the route accepts the right parameters
-- Check if the route calls to the right controller's method
-- Check if the route has the right  ACLs
+- Check if the route is defined **(supported)**
+- Check if the route accepts the right parameters **(not supported yet)**
+- Check if the route calls to the right controller's method **(not supported yet)**
+- Check if the route has the right  ACLs **(not supported yet)**
 
 You will notice that we are not testing the endpoints. In this point we don't care if they work properly or respond as expected.
 
