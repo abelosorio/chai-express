@@ -1,0 +1,28 @@
+{
+  "name": "chai-express",
+  "version": "1.0.0",
+  "description": "Chai's assertions for Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abelosorio/chai-express.git"
+  },
+  "keywords": [
+    "chai",
+    "express",
+    "node",
+    "assertion",
+    "route",
+    "router",
+    "api"
+  ],
+  "author": "Abel M. Osorio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abelosorio/chai-express/issues"
+  },
+  "homepage": "https://github.com/abelosorio/chai-express#readme"
+}
