@@ -1,5 +1,5 @@
 # chai-express
-[![Build Status](https://travis-ci.org/abelosorio/chai-express.svg?branch=master)](https://travis-ci.org/abelosorio/chai-express)
+[![Build Status](https://travis-ci.org/abelosorio/chai-express.svg?branch=master)](https://travis-ci.org/abelosorio/chai-express) [![NPM version](https://img.shields.io/npm/v/chai-express.svg)](https://www.npmjs.com/package/chai-express)
 
 It provides useful [Chai's assertions](https://www.npmjs.com/package/chai)  to use in [Express' routes](https://www.npmjs.com/package/express).
 
