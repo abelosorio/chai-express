@@ -14,3 +14,9 @@ export default function(chai, utils) {
   );
 }
 
+export function simulateRouteDispatch(router, method, routeRegexp, options = {}) {
+  return lib.dispatchRoute(
+    lib.findRouteLayer(router, method, routeRegexp),
+    method
+  );
+}
