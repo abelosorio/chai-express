@@ -1,4 +1,5 @@
 import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import express from 'express';
 
 import chaiExpress from '../../src';
@@ -12,6 +13,9 @@ setRoutes(router);
 
 // Use our helper
 chai.use(chaiExpress);
+
+// Other helpers
+chai.use(sinonChai);
 
 global.chai = chai;
 global.app = app;
