@@ -9,7 +9,7 @@ describe('simulateRouteDispatch', () => {
   });
 
   it('should call to findRouteLayer once with the right arguments', () => {
-    sinon.stub(lib, 'findRouteLayer');
+    sinon.stub(lib, 'findRouteLayer').callsFake(() => ({}));
 
     simulateRouteDispatch('a', 'b', 'c');
 
@@ -45,6 +45,14 @@ describe('simulateRouteDispatch', () => {
     expect(res.append).to.exist;
     expect(res.append.isSinonProxy).to.exist;
     expect(res.append.isSinonProxy).to.be.true;
+
+    lib.findRouteLayer.restore();
+  });
+
+  it('should throw an exception if the route does not exists', () => {
+    sinon.stub(lib, 'findRouteLayer').callsFake(() => undefined);
+
+    expect(simulateRouteDispatch).to.throw();
 
     lib.findRouteLayer.restore();
   });
