@@ -64,14 +64,14 @@ describe('routes', () => {
     it('should define it', () => {
       expect(router).to.have.route(/^\/users_1\/?$/i);
     });
-    
+
     it('should call to the right controller', () => {
       sinon.spy(UserController, 'getAll');
-      
+
       simulateRouteDispatch(router, 'get', /^\/users_1\/?$/i);
-      
+
       expect(UserController.getAll).to.be.calledOnce;
-      
+
       UserController.getAll.restore();
     });
   });
@@ -80,7 +80,7 @@ describe('routes', () => {
 
 ## Motivation
 
-I'll write this from my point of view using what I learned in my career and trying to use as many references I can. Feel free to put your comments our thoughts in an [issue](https://github.com/abelosorio/chai-express/issues) if you want.
+I'll write this from my point of view using what I learned so far and trying to use as many references as I can. Feel free to put your comments or thoughts in an [issue](https://github.com/abelosorio/chai-express/issues) if you want.
 
 ### The problem I found
 
@@ -91,7 +91,7 @@ In every single article or post I've read related to testing routes I found the 
 
 As [J.B. Rainsberger said](https://vimeo.com/80533536) it's almost impossible to write **unit** tests. Instead we try to isolate functionality and test it in an isolated and reduced scope. Hence Rainsberger prefers to use the term **Isolated tests**. And I do prefer it too.
 
-Before moving on I should mention another thing I noticed in these articles. They are not dividing controllers from routes. They show code like this:
+Before moving on I should mention another thing I noticed in these articles. They don't not divide controllers from routes. They show source code like this:
 
 `route/users.js`:
 ```javascript
