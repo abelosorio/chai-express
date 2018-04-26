@@ -39,8 +39,10 @@
     "faker": "^4.1.0",
     "lodash": "^4.17.5",
     "mocha": "^5.1.1",
+    "sinon-chai": "^3.0.0"
+  },
+  "dependencies": {
     "sinon": "^4.5.0",
-    "sinon-chai": "^3.0.0",
     "sinon-express-mock": "^2.0.0"
   }
 }
