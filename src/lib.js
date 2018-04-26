@@ -27,7 +27,7 @@ export function mockRes(options = {}) {
 
 export function dispatchRoute(routeLayer, method) {
   if (!routeLayer || typeof routeLayer.handle !== 'function') {
-    return false;
+    throw new Error('Cannot dispatch a route if this is not given');
   }
 
   const res = mockRes();

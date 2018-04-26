@@ -9,7 +9,9 @@ describe('simulateRouteDispatch', () => {
   });
 
   it('should call to findRouteLayer once with the right arguments', () => {
-    sinon.stub(lib, 'findRouteLayer').callsFake(() => ({}));
+    sinon.stub(lib, 'findRouteLayer').callsFake(() => ({
+      handle: () => true
+    }));
 
     simulateRouteDispatch('a', 'b', 'c');
 
