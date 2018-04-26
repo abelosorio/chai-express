@@ -1,6 +1,6 @@
 {
   "name": "chai-express",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Chai's assertions for Express.",
   "main": "build/index.js",
   "scripts": {
