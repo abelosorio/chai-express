@@ -152,6 +152,10 @@ Why? Express has (or should have) its own tests. So, we delegate the **responsib
 
 ## Changelog
 
+### 1.1.2
+
+- Add a `.npmignore` to exclude some files.
+
 ### 1.1.1
 
 - [FIX] Move `sinon` and `sinon-express-mock` to project's dependencies.
