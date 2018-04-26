@@ -1,4 +1,5 @@
+import * as UserController from './controllers/user';
+
 export default (router) => {
-  router.get('/users', (req, res) => res.send(
-[1, 2, 3]));
+  router.get('/users', UserController.getAll);
 };

@@ -1,4 +1,10 @@
 export default () => {
+  let router;
+
+  before('Initialize', () => {
+    router = initializeApp().router;
+  });
+
   it('should assert correctly that a route exists', () => {
     expect(router).to.have.route('get', /^\/users\/?$/i);
   });
