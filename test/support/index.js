@@ -5,11 +5,15 @@ import express from 'express';
 import chaiExpress from '../../src';
 import setRoutes from './routes';
 
-// Set express server and routes
-const app = express();
-const router = express.Router();
-app.use(router);
-setRoutes(router);
+const initializeApp = () => {
+  // Set express server and routes
+  const app = express();
+  const router = express.Router();
+  app.use(router);
+  setRoutes(router);
+
+  return { router, app };
+};
 
 // Use our helper
 chai.use(chaiExpress);
@@ -18,5 +22,4 @@ chai.use(chaiExpress);
 chai.use(sinonChai);
 
 global.chai = chai;
-global.app = app;
-global.router = router;
+global.initializeApp = initializeApp;
