@@ -14,12 +14,12 @@ export default function(chai, utils) {
   );
 }
 
-export function simulateRouteDispatch(router, method, routeRegexp, options = {}) {
+export function simulateRouteDispatch(router, method, routeRegexp, reqData) {
   const routeLayer = lib.findRouteLayer(router, method, routeRegexp);
 
   if (!routeLayer) {
     throw new Error(`The route [${method}] ${routeRegexp} does not exists`);
   }
 
-  return lib.dispatchRoute(routeLayer, method);
+  return lib.dispatchRoute(routeLayer, method, reqData);
 }

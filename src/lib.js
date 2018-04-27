@@ -25,14 +25,18 @@ export function mockRes(options = {}) {
   return sinonExpress.mockRes(options);
 }
 
-export function dispatchRoute(routeLayer, method) {
+export function dispatchRoute(routeLayer, method, reqData = {}) {
   if (!routeLayer || typeof routeLayer.handle !== 'function') {
     throw new Error('Cannot dispatch a route if this is not given');
   }
 
   const res = mockRes();
 
-  routeLayer.handle(mockReq({ method }), res, (err) => { throw err; });
+  routeLayer.handle(
+    mockReq({ ...reqData, method }),
+    res,
+    (err) => { throw err; }
+  );
 
   return res;
 }
