@@ -152,6 +152,10 @@ Why? Express has (or should have) its own tests. So, we delegate the **responsib
 
 ## Changelog
 
+### 1.1.3
+
+- It will throw an error if the done() callback of routeLayer.handle is called with one.
+
 ### 1.1.2
 
 - Add a `.npmignore` to exclude some files.
