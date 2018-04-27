@@ -152,25 +152,7 @@ Why? Express has (or should have) its own tests. So, we delegate the **responsib
 
 ## Changelog
 
-### 1.1.3
-
-- It will throw an error if the done() callback of routeLayer.handle is called with one.
-
-### 1.1.2
-
-- Add a `.npmignore` to exclude some files.
-
-### 1.1.1
-
-- [FIX] Move `sinon` and `sinon-express-mock` to project's dependencies.
-
-### 1.1.0
-
-- Provide helper `simulateRouteDispatch`.
-
-### 1.0.0
-
-- Provide assertion `route`.
+[CHANGELOG](CHANGELOG.md)
 
 ## Contribute
 
