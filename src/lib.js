@@ -32,7 +32,7 @@ export function dispatchRoute(routeLayer, method) {
 
   const res = mockRes();
 
-  routeLayer.handle(mockReq({ method }), res);
+  routeLayer.handle(mockReq({ method }), res, (err) => { throw err; });
 
   return res;
 }
