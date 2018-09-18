@@ -12,10 +12,23 @@ export default function(chai, utils) {
       )
     }
   );
+
+  utils.addMethod(
+    chai.Assertion.prototype,
+    'acceptRoute',
+    function(method, route) {
+      this.assert(
+        lib.acceptsRouterRoute(this._obj, method, route),
+        `expected router to accept provided route [${method}] ${route}`,
+        `expected router to not accept provied route [${method}] ${route}`
+      )
+    }
+  );
 }
 
 export function simulateRouteDispatch(router, method, routeRegexp, reqData) {
-  const routeLayer = lib.findRouteLayer(router, method, routeRegexp);
+  const findStrategy = lib.equalRegexpStrategy;
+  const routeLayer = lib.findRouteLayer(findStrategy)(router, method, routeRegexp);
 
   if (!routeLayer) {
     throw new Error(`The route [${method}] ${routeRegexp} does not exists`);

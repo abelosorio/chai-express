@@ -13,4 +13,13 @@ export default () => {
     expect(router).to.not.have.route('get', /^\/users_1\/?$/i);
     expect(router).to.not.have.route('put', /^\/users\/?$/i);
   });
+
+  it('should assert router accepts provided route', () => {
+    expect(router).to.acceptRoute('get', '/api/v1/lookup-by-id/1');
+  });
+
+  it('should assert router do not accepts provided route', () => {
+    expect(router).to.not.acceptRoute('get', '/api/v1/lookup-by-id/');
+    expect(router).to.not.acceptRoute('put', '/api/v1/lookup-by-id/1');
+  });
 };

@@ -1,10 +1,29 @@
 import * as sinonExpress from 'sinon-express-mock';
 
-export function hasRouterRoute(router, method, routeRegexp) {
-  return findRouteLayer(router, method, routeRegexp) !== undefined;
+export function acceptsRouterRoute(router, method, testElement) {
+  return findRouteLayer(
+    routerRegexpMatchRouteStrategy
+  )(router, method, testElement) !== undefined;
 }
 
-export function findRouteLayer(router, method, routeRegexp) {
+export function hasRouterRoute(router, method, testElement) {
+  return findRouteLayer(
+    equalRegexpStrategy
+  )(router, method, testElement) !== undefined;
+}
+
+export function findRouteLayer(strategy) {
+  return (router, method, route) => strategy(router, method, route)
+}
+
+export function routerRegexpMatchRouteStrategy(router, method, routeStr) {
+  return router.stack.find(layer => {
+    if (!layer.route.methods[method]) return false;
+    return routeStr.search(layer.regexp) == 0;
+  })
+}
+
+export function equalRegexpStrategy(router, method, routeRegexp) {
   return router.stack.find(layerMatchesRoute(method, routeRegexp));
 }
 
