@@ -3,7 +3,7 @@ import * as sinonExpress from 'sinon-express-mock';
 export function acceptsRouterRoute(router, method, testElement) {
   return findRouteLayer(
     routerRegexpMatchRouteStrategy
-  )(routeRegexp, method, testElement) !== undefined;
+  )(router, method, testElement) !== undefined;
 }
 
 export function hasRouterRoute(router, method, testElement) {
