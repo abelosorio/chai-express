@@ -141,7 +141,8 @@ This checklist is meant to suit in a well modularized API framework. This means 
 
 So, the checklist:
 
-- Check if the route is defined.
+- Check if the route is defined throught regular expression.
+- Check if the a route instance is accepted by your API router.
 - Check if the route accepts the right parameters.
 - Check if the route calls to the right controller's method.
 - Check if the route has the right  ACLs.
@@ -149,6 +150,29 @@ So, the checklist:
 You will notice that we are not testing the endpoints. In this point we don't care if they work properly or respond as expected.
 
 Why? Express has (or should have) its own tests. So, we delegate the **responsibility** of responding to a route to Express. Thus, the router is not responsible for calling to any model or perform no other action but **calling a controller's function**. In that way, the responsible for calling to models and perform actions would be the **controller** and, of course, we have another `test/controllers` directoy testing all our controllers.
+
+## Usage examples.
+Below you find some possible examples using ***expect*** assertion style.
+
+```javascript
+  it('should assert correctly that a route exists', () => {
+    expect(router).to.have.route('get', /^\/users\/?$/i);
+  });
+
+  it('should assert correctly that a route doesn\'t exists', () => {
+    expect(router).to.not.have.route('get', /^\/users_1\/?$/i);
+    expect(router).to.not.have.route('put', /^\/users\/?$/i);
+  });
+
+  it('should assert router accepts provided route', () => {
+    expect(router).to.acceptRoute('get', '/api/v1/lookup-by-id/1');
+  });
+
+  it('should assert router do not accepts provided route', () => {
+    expect(router).to.not.acceptRoute('get', '/api/v1/lookup-by-id/');
+    expect(router).to.not.acceptRoute('put', '/api/v1/lookup-by-id/1');
+  });
+```
 
 ## Changelog
 
