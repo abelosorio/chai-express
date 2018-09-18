@@ -15,24 +15,24 @@ describe('simulateRouteDispatch', () => {
     expect(simulateRouteDispatch).to.be.a('function');
   });
 
-  it('should call to findRouteLayer once with the right arguments', () => {
+  it('should call to equalRegexpStrategy once with the right arguments', () => {
     stubs.push(
-      sinon.stub(lib, 'findRouteLayer').callsFake(() => ({
+      sinon.stub(lib, 'equalRegexpStrategy').callsFake(() => ({
         handle: () => true
       }))
     );
 
     simulateRouteDispatch('a', 'b', 'c');
 
-    expect(lib.findRouteLayer).to.be.calledOnce;
-    expect(lib.findRouteLayer).to.be.calledWith('a', 'b', 'c');
+    expect(lib.equalRegexpStrategy).to.be.calledOnce;
+    expect(lib.equalRegexpStrategy).to.be.calledWith('a', 'b', 'c');
   });
 
   it('should call to the route\'s handler', () => {
     const handlerSpy = sinon.spy();
 
     stubs.push(
-      sinon.stub(lib, 'findRouteLayer')
+      sinon.stub(lib, 'equalRegexpStrategy')
         .callsFake(() => ({ handle: handlerSpy }))
     );
 
@@ -45,7 +45,7 @@ describe('simulateRouteDispatch', () => {
     const handlerSpy = sinon.spy();
 
     stubs.push(
-      sinon.stub(lib, 'findRouteLayer')
+      sinon.stub(lib, 'equalRegexpStrategy')
         .callsFake(() => ({ handle: () => true }))
     );
 
@@ -60,7 +60,7 @@ describe('simulateRouteDispatch', () => {
 
   it('should throw an exception if the route does not exists', () => {
     stubs.push(
-      sinon.stub(lib, 'findRouteLayer').callsFake(() => undefined)
+      sinon.stub(lib, 'equalRegexpStrategy').callsFake(() => undefined)
     );
 
     expect(simulateRouteDispatch).to.throw();
